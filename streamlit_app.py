@@ -4,6 +4,7 @@ import numpy as np
 import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.metrics import mean_squared_error, r2_score
 import altair as alt
 import time
@@ -75,7 +76,7 @@ with st.sidebar:
 
     sleep_time = st.slider('Sleep time', 0, 3, 0)
 
-# Model building process
+# Model building process for random forest regressor
 if uploaded_file or example_data: 
     with st.status("Running ...", expanded=True) as status:
     
@@ -182,7 +183,7 @@ if uploaded_file or example_data:
         st.altair_chart(bars, theme='streamlit', use_container_width=True)
 
     # Prediction results
-    st.header('Prediction results', divider='rainbow')
+    st.header('Prediction results for random forest regression', divider='rainbow')
     s_y_train = pd.Series(y_train, name='actual').reset_index(drop=True)
     s_y_train_pred = pd.Series(y_train_pred, name='predicted').reset_index(drop=True)
     df_train = pd.DataFrame(data=[s_y_train, s_y_train_pred], index=None).T
