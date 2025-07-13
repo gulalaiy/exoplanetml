@@ -84,8 +84,13 @@ if uploaded_file or example_data:
 
         st.write("Preparing data ...")
         time.sleep(sleep_time)
-        X = df.iloc[:,:-1]
-        y = df.iloc[:,-1]
+        X = df.iloc[:,:-1] # g - all columns except for last on for features
+        y = df.iloc[:,-1] # g - last variable for the target
+
+        # g - If 'P_ESI' is the ESI column name and it's not the last column
+        target_column = 'P_ESI' # Or whatever the ESI column name is in your CSV
+        y = df[target_column]
+        X = df.drop(columns=[target_column]) # Drop the target column to get features
             
         st.write("Splitting data ...")
         time.sleep(sleep_time)
