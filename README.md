@@ -4,7 +4,7 @@ This app allow users to build a machine learning (ML) model for Exoplanet target
 
 ## Demo App
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://exoplanetaiml.streamlit.app/)
+[![Streamlit App](TBA)
 
 ## How to Use:
 
